@@ -1,3 +1,4 @@
+"""
 import flet as ft
 from views import PantallaDeBienvenidaView
 
@@ -19,3 +20,4 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
     ft.run(main)
+"""

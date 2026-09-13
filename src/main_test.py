@@ -1,15 +1,16 @@
 import flet as ft
-from views.login_view import VwLogin
+from views import PantallaDeBienvenidaView
 
 def main(page: ft.Page):
     page.padding = 0
     page.width = 500
     #page.theme_mode = ft.ThemeMode.LIGHT
-    controlTest = VwLogin()
+    controlTest = PantallaDeBienvenidaView()
  
     page.add(
-        ft.Row(
-            controls=[controlTest]
+        ft.Column(
+            controls=[controlTest],
+            expand= True
             
         )
     )

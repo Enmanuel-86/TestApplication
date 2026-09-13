@@ -1,20 +1,13 @@
 import flet as ft
-from views.sidebar_view import SideBarView
-from controllers import LoginController
+from controllers import (LoginController, SideBarController)
 
 def main(page: ft.Page):
     page.padding = 0
-    #page.theme_mode = ft.ThemeMode.LIGHT
-    sidebar = SideBarView()
-    login = LoginController(sidebar)
-
-
-    espacio_principal = ft.Container(bgcolor= ft.Colors.GREEN,
-                                     expand= True,
-                                     content= login)
-
-    
-
+    page.theme_mode = ft.ThemeMode.DARK
+    espacio_principal = ft.Container(expand= True)
+    sidebar = SideBarController(espacio_principal)
+    login = LoginController(sidebar, espacio_principal)
+    espacio_principal.content = login
 
 
     sidebar.visible = False

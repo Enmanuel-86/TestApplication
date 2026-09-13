@@ -6,7 +6,7 @@ class LoginView(ft.Container):
         super().__init__()
 
         # Configuracion
-        self.bgcolor = ft.Colors.BLUE
+        #self.bgcolor = ft.Colors.BLUE
         self.padding = 20
         self.border_radius = 10
         self.expand = True
@@ -40,7 +40,7 @@ class LoginView(ft.Container):
                                                                    modal= True
                                                      )
 
-        self.cnt_espacio_principal = ft.Container(bgcolor= ft.Colors.RED,
+        self.cnt_espacio_principal = ft.Container(bgcolor= ft.Colors.BLUE_900,
                                               border_radius= 30,
                                               padding= 30,
                                               content= ft.Column(controls= [self.lbl_titulo,

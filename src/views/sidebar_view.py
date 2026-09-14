@@ -32,14 +32,15 @@ class SideBarView(ft.Container):
         self.btn_salir = ft.Button(
                                    content= "",
                                    icon= ft.Icons.ARROW_BACK,
-                                    expand= True
+                                    expand= True,
+                                    
                                    )
         
         self.content= ft.Column(controls = [
                                         ft.Row(self.btn_menu),
                                         ft.Row(self.btn_principal),
                                         ft.Row(self.btn_form),
-                                        ft.Row(self.btn_salir)
+                                        ft.Row([self.btn_salir])
                                         
                                         
                                     ]

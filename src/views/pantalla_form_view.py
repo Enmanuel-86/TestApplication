@@ -1,5 +1,5 @@
 import flet as ft
-from components import CardContainer
+from components import CardContainer, TextFieldForm
 
 class PantallaFormView(ft.Container):
     def __init__(self):
@@ -25,18 +25,33 @@ class PantallaFormView(ft.Container):
                                                              )
                                              )
 
+        self.txt_primer_nombre = TextFieldForm(label= "Primer Nombre", tooltip= "Escribe tu nombre")
+        self.txt_segundo_nombre = TextFieldForm(label= "Segundo Nombre", )
+        self.txt_primero_apellido = TextFieldForm(label= "Primer Apellido")
+        self.txt_segundo_apellido = TextFieldForm(label= "Segundo Apellido")
+        self.txt_tercer_apellido = TextFieldForm(label= "Tercer Apellido")
+
+        self.cnt_form_datos_personales = CardContainer(
+                                                       content= ft.ResponsiveRow(
+                                                                       
+                                                                       
+                                                                       controls=[
+                                                                                 self.txt_primer_nombre,
+                                                                                 self.txt_segundo_nombre,
+                                                                                 self.txt_primero_apellido,
+                                                                                 self.txt_segundo_apellido,
+                                                                                 self.txt_tercer_apellido
+                                                                                 ]
+                                                                       )
+                                                       )
+
 
         self.cnt_enlaces = CardContainer(
                                          content= ft.Row(
                                                          controls = ft.Column(
                                                                               [ft.Image(src="icon.png",
                                                                                        width= 300,
-                                                                                       height= 200),
-                                                                                ft.TextField(),
-                                                                                ft.TextField(),
-                                                                                ft.TextField(),
-                                                                                ft.TextField(),
-                                                                                ft.TextField(),]
+                                                                                       height= 200)]
                                                                                        
                                                                               )
                                                          )
@@ -45,4 +60,8 @@ class PantallaFormView(ft.Container):
 
         self.content = ft.Column(
                                  scroll= ft.ScrollMode.AUTO,
-                                 controls = [self.cnt_presentacion, self.cnt_enlaces],)
+                                 controls = [
+                                             self.cnt_presentacion, 
+                                             self.cnt_form_datos_personales, 
+                                             self.cnt_enlaces],)
+

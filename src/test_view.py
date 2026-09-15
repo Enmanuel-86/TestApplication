@@ -4,6 +4,10 @@ from views.pantalla_form_view import PantallaFormView
 
 def main(page: ft.Page):
     page.padding = 0
+    page.locale_configuration = ft.LocaleConfiguration(
+        supported_locales=[ft.Locale("es", "ES")],
+        current_locale=ft.Locale("es", "ES")
+    )
     #page.width = 300
     #page.theme_mode = ft.ThemeMode.LIGHT
     controlTest = PantallaFormView()
@@ -15,7 +19,7 @@ def main(page: ft.Page):
         print(f"Ancho actual: {page.width}px")
 
     # Escucha el evento de redimensionado
-    page.on_resized = lambda e: al_redimensionar(e)
+    #page.on_resized = lambda e: al_redimensionar(e)
     
  
     page.add(

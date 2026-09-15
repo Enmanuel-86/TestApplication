@@ -7,6 +7,10 @@ from utils.funciones import funciones_sistema
 def main(page: ft.Page):
     page.padding = 0
     page.theme_mode = ft.ThemeMode.DARK
+    page.locale_configuration = ft.LocaleConfiguration(
+        supported_locales=[ft.Locale("es", "ES")],
+        current_locale=ft.Locale("es", "ES")
+    )
 
     espacio_principal = ft.Container(expand= True)
     sidebar = SideBarController(espacio_principal)

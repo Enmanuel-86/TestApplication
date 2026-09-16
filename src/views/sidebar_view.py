@@ -9,7 +9,7 @@ class SideBarView(ft.Container):
         self.padding = 2
         self.animate = ft.Animation(200, curve= ft.AnimationCurve.LINEAR)
         self.btn_menu = ft.Button(
-                                  content= "", 
+                                  content= ft.Text("Menu", no_wrap= True), 
                                   on_click= self.animarsidebar,
                                   icon = ft.Icons.MENU,
                                     expand= True,
@@ -17,22 +17,23 @@ class SideBarView(ft.Container):
                                     )
 
         self.btn_principal = ft.Button(
-                                       content= "",
+                                       content= ft.Text("Principal", no_wrap= True),
                                        icon = ft.Icons.HOME,
                                        expand= True
                                        )
 
 
         self.btn_form = ft.Button(
-                            content= "",
+                            content= ft.Text("Formulario", no_wrap= True),
                             icon= ft.Icons.FOUR_MP,
                             expand= True
                             )
 
         self.btn_salir = ft.Button(
-                                   content= "",
+                                   content= ft.Text("Salir", no_wrap= True),
                                    icon= ft.Icons.ARROW_BACK,
                                     expand= True,
+                                    
                                     
                                    )
         
@@ -50,14 +51,7 @@ class SideBarView(ft.Container):
     def animarsidebar(self):
         if self.width == 200:
             self.width = 50
-            self.btn_menu.content = ""
-            self.btn_principal.content = ""
-            self.btn_form.content = ""
-            self.btn_salir.content = ""
-            
+
         elif self.width == 50:
             self.width = 200
-            self.btn_menu.content = "Menu"
-            self.btn_principal.content = "Principal"
-            self.btn_form.content = "Form"
-            self.btn_salir.content = "Salir"
+            

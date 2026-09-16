@@ -35,11 +35,11 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
 
-    #ft.run(main)
+    ft.run(main)
 
-    #"""
+    """
     ft.run(main,
            host = "0.0.0.0",
            port = 8080 ,
            view= ft.AppView.WEB_BROWSER)
-    #"""
+    """

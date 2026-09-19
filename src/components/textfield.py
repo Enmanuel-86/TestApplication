@@ -1,4 +1,5 @@
 import flet as ft
+import datetime
 
 # Contenedor base
 @ft.control
@@ -11,5 +12,32 @@ class TextFieldBase(ft.TextField):
 @ft.control
 class TextFieldForm(TextFieldBase):
     def build(self):
-        
         return super().build()
+
+@ft.control
+class TextFieldDatePicker(TextFieldForm):
+
+    def build(self):
+        
+        fecha_defecto = datetime.datetime.now().strftime("%d/%m/%Y")
+        today = datetime.datetime.now()
+
+        self.suffix_icon= ft.IconButton(icon = ft.Icons.CALENDAR_MONTH, on_click=lambda e: e.page.show_dialog(self.picker))
+        #self.on_click=lambda e: e.page.show_dialog(self.picker)
+        self.read_only = True
+        self.tooltip= f"Pica el boton para seleccionar la {self.label.lower()}"
+
+        self.picker = ft.DatePicker(
+                                        first_date=datetime.datetime(year=1964, month=1, day=1),
+                                        last_date=datetime.datetime(year=today.year + 1, month=today.month, day=20),
+                                        current_date=today,
+                                        on_change= self.handle_change
+                                        )
+
+
+        return super().build()
+
+    def handle_change(self, e: ft.Event[ft.DatePicker]):
+        self.value = e.control.value.strftime('%d/%m/%Y')
+    
+            

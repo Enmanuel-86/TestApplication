@@ -23,9 +23,10 @@ class TextFieldDatePicker(TextFieldForm):
         today = datetime.datetime.now()
 
         self.suffix_icon= ft.IconButton(icon = ft.Icons.CALENDAR_MONTH, on_click=lambda e: e.page.show_dialog(self.picker))
-        #self.on_click=lambda e: e.page.show_dialog(self.picker)
+        self.hint_text = "Haz click al boton del calendario"
+        self.hint_style = ft.TextStyle(size=12)
         self.read_only = True
-        self.tooltip= f"Pica el boton para seleccionar la {self.label.lower()}"
+        self.tooltip= f"Haz click al boton del calendario"
 
         self.picker = ft.DatePicker(
                                         first_date=datetime.datetime(year=1964, month=1, day=1),

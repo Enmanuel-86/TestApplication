@@ -1,5 +1,5 @@
 [project]
-name = "testaplication"
+name = "testapplication"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -7,10 +7,12 @@ authors = [
     { name = "Enmanuel-86", email = "enmanuelgarcia648@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "flet>=1.0.0",
+]
 
 [project.scripts]
-testaplication = "testaplication:main"
+testapplication = "testapplication:main"
 
 [build-system]
 requires = ["uv_build>=0.12.17,<0.13.0"]

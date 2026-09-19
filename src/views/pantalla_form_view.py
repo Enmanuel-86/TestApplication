@@ -12,16 +12,19 @@ class PantallaFormView(ft.Container):
         
 
         self.lbl_titulo = ft.Text(value = "Formulario de prueba",
-                                  size= 20,
-                                  expand= True,
-                                  bgcolor= "red")
+                                  size= 30,
+                                  weight= ft.FontWeight.BOLD
+                                  #expand= True,
+                                  #bgcolor= "red"
+                                  )
         self.lbl_descripcion = ft.Text(value= "Este formulario es para probar como obtener los valores de los controls")
 
 
         self.cnt_presentacion = CardContainer(
+                                              
                                               content= ft.Column(
-                                                                 ft.Row([self.lbl_titulo], alignment= ft.MainAxisAlignment.CENTER)
-                                                                 )
+                                                                 ft.Row(controls = [self.lbl_titulo], alignment= ft.MainAxisAlignment.CENTER)
+                                                                 )                
                                               )
 
         self.txt_primer_nombre = TextFieldForm(label= "Primer Nombre",
@@ -42,8 +45,10 @@ class PantallaFormView(ft.Container):
                                          ft.DropdownOption("Femenino")
                                      ]
                                         )
-        
-        self.txt_fecha_nacimiento = TextFieldDatePicker(label = "Fecha nacimiento")
+
+        self.txt_fecha_nacimiento = TextFieldDatePicker(label = "Fecha de nacimiento" )
+
+        self.btn_validar = ft.Button(content= "Validar")
 
         self.cnt_form_datos_personales = CardContainer(
                                                        content= ft.ResponsiveRow(
@@ -67,11 +72,9 @@ class PantallaFormView(ft.Container):
         self.cnt_enlaces = CardContainer(
                                          content= ft.Row(
                                                          controls = ft.Column(
-                                                                              [ft.Image(src="icon.png",
-                                                                                       width= 300,
-                                                                                       height= 200)]
-                                                                                       
-                                                                              )
+                                                                              [self.btn_validar]   
+                                                                              ),
+                                                        alignment= ft.MainAxisAlignment.END
                                                          )
                                          )
 

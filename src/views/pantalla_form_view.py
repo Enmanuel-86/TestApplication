@@ -11,20 +11,18 @@ class PantallaFormView(ft.Container):
         self.padding = 10
         
 
-        self.lbl_titulo = ft.Text(value = "Formulario",
-                                  size= 20)
-        self.lbl_descripcion = ft.Text(value= "Formuario")
+        self.lbl_titulo = ft.Text(value = "Formulario de prueba",
+                                  size= 20,
+                                  expand= True,
+                                  bgcolor= "red")
+        self.lbl_descripcion = ft.Text(value= "Este formulario es para probar como obtener los valores de los controls")
 
 
         self.cnt_presentacion = CardContainer(
-                                            content= ft.Row(
-                                                             controls = [
-                                                                         ft.Column(
-                                                                                   controls= [self.lbl_titulo, self.lbl_descripcion]
-                                                                                   )
-                                                                         ]
-                                                             )
-                                             )
+                                              content= ft.Column(
+                                                                 ft.Row([self.lbl_titulo], alignment= ft.Ho)
+                                                                 )
+                                              )
 
         self.txt_primer_nombre = TextFieldForm(label= "Primer Nombre", tooltip= "Escribe tu nombre")
         self.txt_segundo_nombre = TextFieldForm(label= "Segundo Nombre", )

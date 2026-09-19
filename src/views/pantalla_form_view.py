@@ -1,6 +1,6 @@
 import flet as ft
-from components import CardContainer, TextFieldForm
-from components.contenedores import DatePicker
+from components import CardContainer, TextFieldForm, TextFieldDatePicker
+
 
 class PantallaFormView(ft.Container):
     def __init__(self):
@@ -20,11 +20,14 @@ class PantallaFormView(ft.Container):
 
         self.cnt_presentacion = CardContainer(
                                               content= ft.Column(
-                                                                 ft.Row([self.lbl_titulo], alignment= ft.Ho)
+                                                                 ft.Row([self.lbl_titulo], alignment= ft.MainAxisAlignment.CENTER)
                                                                  )
                                               )
 
-        self.txt_primer_nombre = TextFieldForm(label= "Primer Nombre", tooltip= "Escribe tu nombre")
+        self.txt_primer_nombre = TextFieldForm(label= "Primer Nombre",
+                                                tooltip= "Escribe tu nombre",
+                                                on_change= lambda e: self.campos_tipo_texto(e),
+                                                )
         self.txt_segundo_nombre = TextFieldForm(label= "Segundo Nombre", )
         self.txt_primero_apellido = TextFieldForm(label= "Primer Apellido")
         self.txt_segundo_apellido = TextFieldForm(label= "Segundo Apellido")
@@ -40,9 +43,7 @@ class PantallaFormView(ft.Container):
                                      ]
                                         )
         
-        self.dp_fecha_de_nacimiento = ft.DatePicker(
-                                                    
-                                                    )
+        self.txt_fecha_nacimiento = TextFieldDatePicker(label = "Fecha nacimiento")
 
         self.cnt_form_datos_personales = CardContainer(
                                                        content= ft.ResponsiveRow(
@@ -56,7 +57,7 @@ class PantallaFormView(ft.Container):
                                                                                  self.txt_tercer_apellido,
                                                                                  self.dd_genero,
                                                                                  self.txt_cedula,
-                                                                                 DatePicker("Fecha nacimiento")
+                                                                                 self.txt_fecha_nacimiento
                                                                                  
                                                                                  ]
                                                                        )
@@ -81,4 +82,18 @@ class PantallaFormView(ft.Container):
                                              self.cnt_presentacion, 
                                              self.cnt_form_datos_personales, 
                                              self.cnt_enlaces],)
+
+
+    def campos_tipo_texto(self, e):
+        """
+            Metodo para verificar que el texto no contenga numeros
+        """
+
+        valor = e.control.value
+
+        if valor and valor.isdigit():
+            e.control.error = "No puede ingresar numeros"
+        else:
+            e.control.error = None
+        e.page.update()
 

@@ -50,6 +50,14 @@ class PantallaFormView(ft.Container):
 
         self.btn_validar = ft.Button(content= "Validar")
 
+        self.btn_dlg_si = ft.TextButton(content= "Si")
+        self.btn_dlg_no = ft.TextButton(content= "No", on_click= self.cerrar_dialogo)
+        self.dlg_aviso = ft.AlertDialog(
+                                        title= ft.Text("Aviso"),
+                                        content= ft.Text("¿Seguro que quieres guardar la información de esta persona?"),
+                                        modal= True,
+                                        actions=[self.btn_dlg_si, self.btn_dlg_no])
+
         self.cnt_form_datos_personales = CardContainer(
                                                        content= ft.ResponsiveRow(
                                                                        
@@ -100,3 +108,7 @@ class PantallaFormView(ft.Container):
             e.control.error = None
         e.page.update()
 
+    def cerrar_dialogo(self, e):
+        e.control.page.pop_dialog()
+        e.page.update()
+        print("La operacion no procede")

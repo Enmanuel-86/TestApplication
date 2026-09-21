@@ -11,8 +11,8 @@ class LoginController(LoginView):
       
 
         self.btn_ingresar.on_click = lambda e: self.validacion_de_credenciales(e)
-        #self.txt_nombre_usuario.value = "Enmanuel"
-        #self.txt_contrasenia_usuario.value = "1234"
+        self.txt_nombre_usuario.value = "Enmanuel"
+        self.txt_contrasenia_usuario.value = "1234"
             
             
 

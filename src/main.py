@@ -17,13 +17,10 @@ def main(page: ft.Page):
     funciones_sistema.SIDEBAR = sidebar
     funciones_sistema.ESPACIO_PRINCIPAL = espacio_principal
 
-    espacio_principal.content = funciones_sistema.PANTALLAS["Login"]()
-
-    
-
+    espacio_principal.content = funciones_sistema.obtener_controller_pantalla("Login")()
 
     sidebar.visible = False
- 
+
     page.add(
         ft.Row(
             controls=[sidebar, espacio_principal],

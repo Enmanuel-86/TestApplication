@@ -5,18 +5,14 @@ from utils import funciones_sistema
 
 
 class SideBarController(SideBarView):
-    def __init__(self, contenedor_principal):
+    def __init__(self):
         super().__init__()
-        self.contenedor_principal = contenedor_principal
 
-        self.btn_principal.on_click = lambda e: funciones_sistema.cambiar_pantalla("PantallaDeBienvenida", self.contenedor_principal, e)
-        self.btn_form.on_click = lambda e: funciones_sistema.cambiar_pantalla("PantallaForm", self.contenedor_principal, e)
-        self.btn_salir.on_click = lambda e: self.volver_al_login(e)
+        self.btn_principal.on_click = lambda e: funciones_sistema.cambiar_a_la_pantalla(e, "PantallaDeBienvenida")
+        self.btn_form.on_click = lambda e: funciones_sistema.cambiar_a_la_pantalla(e, "PantallaForm")
+        self.btn_salir.on_click = lambda e: funciones_sistema.cambiar_a_la_pantalla(e, "Login", False)
 
-    def volver_al_login(self, e):
-        funciones_sistema.cambiar_pantalla("Login", self.contenedor_principal, e)
-        self.visible = False
-        e.page.update()
+
 
     
     

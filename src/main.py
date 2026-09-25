@@ -1,6 +1,7 @@
 import flet as ft
-from controllers import (LoginController, SideBarController)
+from controllers import (SideBarController)
 from utils.funciones import funciones_sistema
+
 
 
 
@@ -12,21 +13,20 @@ def main(page: ft.Page):
         current_locale=ft.Locale("es", "ES")
     )
 
-    espacio_principal = ft.Container(expand= True)
-    sidebar = SideBarController(espacio_principal)
+    ctn_espacio_principal = ft.Container(expand= True)
+    sidebar = SideBarController()
+
+    ctn_espacio_principal.content = funciones_sistema.PANTALLAS_CONTROLLERS["Login"]
+
+    funciones_sistema.CTN_ESPACIO_PRINCIPAL = ctn_espacio_principal
     funciones_sistema.SIDEBAR = sidebar
-    funciones_sistema.ESPACIO_PRINCIPAL = espacio_principal
-
-    espacio_principal.content = funciones_sistema.PANTALLAS["Login"]()
-
-    
 
 
     sidebar.visible = False
  
     page.add(
         ft.Row(
-            controls=[sidebar, espacio_principal],
+            controls=[sidebar, ctn_espacio_principal],
             expand=True,
             spacing= 0
         )

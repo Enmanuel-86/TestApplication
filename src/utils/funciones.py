@@ -4,6 +4,7 @@ from controllers.pantalla_de_bienvenida_controller import PantallaDeBienvenidaCo
 from controllers.pantalla_form_controller import PantallaFormController
 
 
+
 """
 login = LoginController()
 pantalla_de_bienvenida =PantallaDeBienvenidaController()
@@ -17,31 +18,36 @@ PANTALLAS:dict = {
 """
 
 
+
 class FuncionesSistema:
   def __init__(self):
-    
-    self.SIDEBAR = None
-    self.ESPACIO_PRINCIPAL = None
 
-    self.PANTALLAS:dict = {
-                    "Login": LoginController,
-                    "PantallaDeBienvenida": PantallaDeBienvenidaController,
-                    "PantallaForm": PantallaFormController
+    self.CTN_ESPACIO_PRINCIPAL = None
+    self.SIDEBAR = None
+
+    self.PANTALLAS_CONTROLLERS:dict = {
+                    "Login": LoginController(),
+                    "PantallaDeBienvenida": PantallaDeBienvenidaController(),
+                    "PantallaForm": PantallaFormController()
                   }
+
 
   
 
-  def cambiar_pantalla(self, nombre_pantalla:str, contenedor_principal, e):
+  def cambiar_a_la_pantalla(self, e, nombre_pantalla:str, visibilidad_sidebar:bool = True):
       """
           Funcion para cambiar entre pantallas.
 
-          Pantalla disponibles:
+          Solo se tiene que para el nombre de la pantalla para poder acceder a ella
+
+          Pantallas disponibles:
           - Login
           - PantallaDeBienvenida
           - PantallaForm
       """
 
-      contenedor_principal.content = self.PANTALLAS[nombre_pantalla]()
+      self.CTN_ESPACIO_PRINCIPAL.content = self.PANTALLAS_CONTROLLERS[nombre_pantalla]
+      self.SIDEBAR.visible = visibilidad_sidebar
       e.page.update()
 
       print(f"Estamos en el/la: {nombre_pantalla}")

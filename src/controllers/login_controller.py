@@ -35,9 +35,8 @@ class LoginController(LoginView):
                 e.page.update()
 
                 from utils.funciones import funciones_sistema
-                funciones_sistema.SIDEBAR.visible = True
-                funciones_sistema.cambiar_pantalla("PantallaDeBienvenida", funciones_sistema.ESPACIO_PRINCIPAL, e)
-                print("Inicio de sesion")
+                funciones_sistema.cambiar_a_la_pantalla(e, "PantallaDeBienvenida")
+                print("Inicio de sesion") 
                 return
             else:
                 e.control.page.show_dialog(self.dlg_contrasenia_incorrecta)

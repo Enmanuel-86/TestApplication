@@ -1,6 +1,6 @@
 
 import flet as ft
-from views.pantalla_form_view import PantallaFormView
+from views.sidebar_view import SideBarView
 
 def main(page: ft.Page):
     page.padding = 0
@@ -10,7 +10,7 @@ def main(page: ft.Page):
     )
     #page.width = 300
     #page.theme_mode = ft.ThemeMode.LIGHT
-    controlTest = PantallaFormView()
+    controlTest = SideBarView()
 
     print(f"Ancho inicial: {page.width}px")
 

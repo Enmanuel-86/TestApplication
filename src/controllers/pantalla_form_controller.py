@@ -1,5 +1,5 @@
 from views import PantallaFormView
-from utils import funciones_sistema
+#from utils import funciones_sistema
 datos_persona = []
 
 class PantallaFormController(PantallaFormView):
@@ -19,6 +19,6 @@ class PantallaFormController(PantallaFormView):
         datos_persona.append(self.txt_primer_nombre.value)
         print("Se guarda esta guardando la información")
         print(datos_persona)
-        funciones_sistema.cambiar_pantalla("PantallaForm")
+        #funciones_sistema.cambiar_pantalla("PantallaForm")
         
         
